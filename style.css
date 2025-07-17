@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #ffd6e0, #ffeaea);
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.card {
+  background-color: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  color: #ff4081;
+}
+
+img {
+  width: 150px;
+  margin: 20px 0;
+}
+
+button {
+  background-color: #ff80ab;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #ff4081;
+}
+
+.oculto {
+  display: none;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #d81b60;
+}
+
+/* 💓 Coração voando */
+.fundo-cora {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.coracao {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  position: absolute;
+  left: 50%;
+  bottom: -30px;
+  transform: rotate(-45deg);
+  animation: voar 10s infinite linear;
+}
+
+.coracao::before,
+.coracao::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.coracao::before {
+  top: -10px;
+  left: 0;
+}
+
+.coracao::after {
+  left: 10px;
+  top: 0;
+}
+
+@keyframes voar {
+  0% {
+    transform: translateX(0) translateY(0) rotate(-45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-200px) translateY(-100vh) rotate(-45deg);
+    opacity: 0;
+  }
+}
+
+/* 💌 Carta animada */
+.carta {
+  width: 200px;
+  height: 120px;
+  margin: 30px auto;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.carta .frente,
+.carta .verso {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  transition: transform 0.6s;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  padding: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.carta .frente {
+  background: #ffe0f0;
+}
+
+.carta .verso {
+  background: #fff8f8;
+  transform: rotateY(180deg);
+}
+
+.carta.aberta .frente {
+  transform: rotateY(180deg);
+}
+
+.carta.aberta .verso {
+  transform: rotateY(0deg);
+}
+
+.carta {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+/* 🎵 Spotify */
+.spotify {
+  margin-top: 30px;
+  width: 100%;
+  max-width: 400px;
+}
